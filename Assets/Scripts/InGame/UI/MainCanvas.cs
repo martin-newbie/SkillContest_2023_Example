@@ -13,4 +13,6 @@ public class MainCanvas : MonoBehaviour
     public SimpleSkill healSkillGauge;
     public SimpleSkill bombSkillGauge;
     public CurrentFlight currentFlight;
+
+    public SimpleGauge bossHp;
 }

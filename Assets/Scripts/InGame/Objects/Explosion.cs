@@ -17,6 +17,7 @@ public class Explosion : MonoBehaviour
         foreach (var item in results)
         {
             item.GetComponent<EnemyBase>()?.OnDamage(3.5f);
+            InGameManager.Instance.score += 3.5f;
         }
     }
 

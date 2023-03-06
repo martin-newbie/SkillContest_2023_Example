@@ -25,7 +25,7 @@ public abstract class Player : MonoBehaviour
 
 
 
-    void Start()
+    protected virtual void Start()
     {
         fuel = maxFuel;
         hp = maxHp;

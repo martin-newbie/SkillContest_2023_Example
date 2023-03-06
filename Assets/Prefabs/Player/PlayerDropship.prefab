@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3237317075241425440}
   - component: {fileID: 3237317075241425471}
   - component: {fileID: 3237317075241425441}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerDropship
   m_TagString: Player
   m_Icon: {fileID: 0}

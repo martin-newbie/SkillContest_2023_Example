@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6529454434352020118}
   - component: {fileID: 6529454434352020121}
   - component: {fileID: 6529454434352020120}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: PlayerFlighter
   m_TagString: Player
   m_Icon: {fileID: 0}

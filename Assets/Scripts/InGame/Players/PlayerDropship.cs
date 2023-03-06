@@ -9,8 +9,9 @@ public class PlayerDropship : Player
     public List<PlayerDrone> drons = new List<PlayerDrone>();
     public Vector3[] dronsOffset = new Vector3[4];
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         SpawnDrone();
     }
 

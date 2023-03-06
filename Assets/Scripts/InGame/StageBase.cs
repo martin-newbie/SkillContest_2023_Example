@@ -6,7 +6,9 @@ using UnityEngine;
 public abstract class StageBase : MonoBehaviour
 {
     public EnemyBase[] enemies;
-    List<Func<IEnumerator>> waveList = new List<Func<IEnumerator>>();
+    public ItemBase[] items;
+
+    protected List<Func<IEnumerator>> waveList = new List<Func<IEnumerator>>();
 
     public IEnumerator StageRoutine()
     {

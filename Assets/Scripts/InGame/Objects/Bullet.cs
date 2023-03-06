@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     public float moveSpeed;
+    public float damage;
     public Vector3 dir;
 
     void Update()
@@ -16,8 +17,9 @@ public class Bullet : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            collision.GetComponent<EnemyBase>()?.OnDamage(5f);
+            collision.GetComponent<EnemyBase>()?.OnDamage(damage);
             InGameManager.Instance.PlayEffectParticle(0, transform.position);
+            InGameManager.Instance.score += damage;
             Destroy(gameObject);
         }
     }

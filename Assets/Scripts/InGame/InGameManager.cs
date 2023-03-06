@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class InGameManager : MonoBehaviour
@@ -19,6 +20,8 @@ public class InGameManager : MonoBehaviour
 
     [Header("Stage Info")]
     public int stageIndex;
+    public List<StageBase> stages = new List<StageBase>();
+    StageBase curStage;
 
     [Header("Particles")]
     public ParticleSystem[] effectParticles;
@@ -52,6 +55,9 @@ public class InGameManager : MonoBehaviour
     {
         stageIndex = TempData.Instance.stageIndex;
 
+        stages = GetComponentsInChildren<StageBase>().ToList();
+        curStage = stages[stageIndex];
+
         StartCoroutine(IntroLogic());
     }
 
@@ -67,14 +73,14 @@ public class InGameManager : MonoBehaviour
         yield return StartCoroutine(moveTo(curPlayer.transform, new Vector3(0, -4), 1f));
         curPlayer.playerActive = true;
 
-
+        yield return StartCoroutine(IngameLogic());
 
         yield break;
     }
 
     IEnumerator IngameLogic()
     {
-
+        yield return StartCoroutine(curStage.StageRoutine());
         yield break;
     }
 
