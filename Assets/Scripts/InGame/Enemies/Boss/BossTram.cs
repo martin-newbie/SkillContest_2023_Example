@@ -14,6 +14,8 @@ public class BossTram : EnemyBase
 
     int phaseLevel;
 
+    public bool isEnd = false;
+
     SimpleGauge bossHp;
 
     protected override void DieDestroy()
@@ -39,7 +41,7 @@ public class BossTram : EnemyBase
             transform.Translate(Vector3.up * Time.deltaTime);
             yield return null;
         }
-
+        isEnd = true;
         yield break;
     }
 

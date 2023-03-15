@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class InGameManager : MonoBehaviour
 {
@@ -14,6 +16,8 @@ public class InGameManager : MonoBehaviour
     }
     [Header("UI")]
     public MainCanvas canvas;
+    public Text messageText;
+    public Animator textAnimator;
 
     [Header("Map Info")]
     public Vector2 borderSize;
@@ -55,7 +59,7 @@ public class InGameManager : MonoBehaviour
     {
         stageIndex = TempData.Instance.stageIndex;
 
-        stages = GetComponentsInChildren<StageBase>().ToList();
+        stages = GetComponents<StageBase>().ToList();
         curStage = stages[stageIndex];
 
         StartCoroutine(IntroLogic());
@@ -81,6 +85,20 @@ public class InGameManager : MonoBehaviour
     IEnumerator IngameLogic()
     {
         yield return StartCoroutine(curStage.StageRoutine());
+        // game clear
+
+        TempData.Instance.stageScore[stageIndex] = score;
+
+        if (stageIndex < 2)
+        {
+            TempData.Instance.stageIndex++;
+            SceneManager.LoadScene("InGame");
+            
+        }
+        else
+        {
+            SceneManager.LoadScene("Ranking");
+        }
         yield break;
     }
 
@@ -136,13 +154,13 @@ public class InGameManager : MonoBehaviour
         healCurDelay += Time.deltaTime;
         bombCurDelay += Time.deltaTime;
 
-        if(Input.GetKeyDown(KeyCode.X) && healCurDelay >= healMaxDelay)
+        if (Input.GetKeyDown(KeyCode.X) && healCurDelay >= healMaxDelay)
         {
             curPlayer.HpRecover(curPlayer.maxHp / 2f);
             healCurDelay = 0f;
         }
 
-        if(Input.GetKeyDown(KeyCode.C) && bombCurDelay >= bombMaxDelay)
+        if (Input.GetKeyDown(KeyCode.C) && bombCurDelay >= bombMaxDelay)
         {
             Instantiate(skillBomb, curPlayer.transform.position, Quaternion.identity);
             bombCurDelay = 0f;
@@ -164,5 +182,11 @@ public class InGameManager : MonoBehaviour
     public void ScoreUp(float amount = 100f)
     {
         score += amount;
+    }
+
+    public void PrintMessage(string text)
+    {
+        messageText.text = text;
+        textAnimator.SetTrigger("MessageTrigger");
     }
 }

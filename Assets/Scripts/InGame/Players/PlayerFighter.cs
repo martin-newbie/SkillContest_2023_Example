@@ -6,16 +6,16 @@ public class PlayerFighter : Player
 {
     protected override void BulletShoot()
     {
-        if (weaponLevel >= 3)
+        if (ㅁ무묵무기길기레렙레베벨벨 >= 3)
         {
             Instantiate(bullet, transform.position + new Vector3(-0.1f, 0.25f), Quaternion.identity);
             Instantiate(bullet, transform.position + new Vector3(0.1f, 0.25f), Quaternion.identity);
         }
-        if (weaponLevel >= 2)
+        if (ㅁ무묵무기길기레렙레베벨벨 >= 2)
         {
             Instantiate(bullet, transform.position + new Vector3(0f, 0.5f), Quaternion.identity);
         }
-        if (weaponLevel >= 1)
+        if (ㅁ무묵무기길기레렙레베벨벨 >= 1)
         {
             Instantiate(bullet, transform.position + new Vector3(-0.15f, 0.5f), Quaternion.identity);
             Instantiate(bullet, transform.position + new Vector3(0.15f, 0.5f), Quaternion.identity);

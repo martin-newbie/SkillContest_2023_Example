@@ -12,13 +12,18 @@ public class PlayerDropship : Player
     protected override void Start()
     {
         base.Start();
-        SpawnDrone();
+        for (int i = 0; i <= ㅁ무묵무기길기레렙레베벨벨; i++)
+        {
+            SpawnDrone(i);
+        }
     }
 
-    void SpawnDrone()
+    void SpawnDrone(int index = -1)
     {
+        if (index == -1) index = ㅁ무묵무기길기레렙레베벨벨;
+
         var drone = Instantiate(dronePrefab);
-        drone.InitDrone(transform, dronsOffset[weaponLevel]);
+        drone.InitDrone(transform, dronsOffset[index]);
         drons.Add(drone);
     }
 
@@ -38,7 +43,7 @@ public class PlayerDropship : Player
     {
         base.WeaponLevelUp();
 
-        if (weaponLevel < 4)
+        if (ㅁ무묵무기길기레렙레베벨벨 < 4)
             SpawnDrone();
     }
 }

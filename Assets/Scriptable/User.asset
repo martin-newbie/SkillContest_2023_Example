@@ -12,4 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d22e4403b11c90148be7f67593a4da2f, type: 3}
   m_Name: User
   m_EditorClassIdentifier: 
-  rankingDatas: []
+  rankingDatas:
+  - name: "\uC804\uC7AC\uBBFC"
+    score: 6974
+  - name: "\uAE40\uC6C5\uC12D"
+    score: 8282
+  - name: "\uD558\uC0C1\uBC94"
+    score: 1004
+  - name: "\uCD5C\uC2B9\uBBFC"
+    score: 18
+  - name: "\uC9C0\uC6A9\uC9C4"
+    score: 28
+  - name: "\uC870\uC131\uC6B0"
+    score: 1818
+  - name: "\uAE40\uB300\uC9C4"
+    score: 9999999
+  - name: "\uBBFC\uADFC\uC12D"
+    score: 10000000

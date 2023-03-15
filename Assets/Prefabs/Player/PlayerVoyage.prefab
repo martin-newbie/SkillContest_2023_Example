@@ -149,8 +149,8 @@ MonoBehaviour:
   maxFuel: 100
   moveSpeed: 5
   maxDuration: 0.15
-  fuel: 0
-  hp: 0
-  curDelay: 0
-  weaponLevel: 0
-  playerActive: 1
+  "\u3147\uC5EC\uC5F0\uC5F0\uB8CC\uB8CC": 0
+  "\u314A\uCCB4\uCCBC\uCCB4\uB824\uB825\uB825": 0
+  "\u314E\uD600\uD604\uD605\uD604\uC81C\u3148\uC7AC\uC7B3\uC7AC\uB514\uB51C\uB51C\u3139\uB808\uB81D\uB808\uC774\uC774": 0
+  "\u3141\uBB34\uBB35\uBB34\uAE30\uAE38\uAE30\uB808\uB819\uB808\uBCA0\uBCA8\uBCA8": 0
+  playerActive: 0

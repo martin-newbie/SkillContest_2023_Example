@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class ItemBase : MonoBehaviour
 {
     public float moveSpeed;
+    bool alreadyGot = false;
 
     private void Update()
     {
@@ -15,9 +16,10 @@ public abstract class ItemBase : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && !alreadyGot)
         {
             TriggerEvent(collision);
+            alreadyGot = true;
             Destroy(gameObject);
         }
     }

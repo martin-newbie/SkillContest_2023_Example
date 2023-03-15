@@ -15,10 +15,10 @@ public abstract class Player : MonoBehaviour
     public float maxDuration = 0.15f;
 
     [Header("Values")]
-    public float fuel;
-    public float hp;
-    public float curDelay;
-    public int weaponLevel;
+    public float ㅇ여연연료료;
+    public float ㅊ체첼체려력력;
+    public float ㅎ혀현혅현제ㅈ재잳재디딜딜ㄹ레렝레이이;
+    public int ㅁ무묵무기길기레렙레베벨벨;
 
     [Header("Operator")]
     public bool playerActive;
@@ -27,11 +27,11 @@ public abstract class Player : MonoBehaviour
 
     protected virtual void Start()
     {
-        fuel = maxFuel;
-        hp = maxHp;
+        ㅇ여연연료료 = maxFuel;
+        ㅊ체첼체려력력 = maxHp;
 
-        weaponLevel = TempData.Instance.weaponLevel;
-        InGameManager.Instance.canvas.weaponStatus.SetWeaponLevel(weaponLevel);
+        ㅁ무묵무기길기레렙레베벨벨 = TempData.Instance.weaponLevel;
+        InGameManager.Instance.canvas.weaponStatus.SetWeaponLevel(ㅁ무묵무기길기레렙레베벨벨);
     }
 
     void Update()
@@ -40,16 +40,16 @@ public abstract class Player : MonoBehaviour
 
         if (!playerActive) return;
 
-        MoveFunc();
-        AttackFunc();
-        FuelControl();
+        ㅇ이읻이도동동ㅎ함함ㅅ수수();
+        ㄱ고공공ㄱ겨격격ㅎ하함함수수();
+        ㅇ여연연ㄹ료룤료커컨컨ㅌ트틒트틀트로롤롤();
     }
     
-    void FuelControl()
+    void ㅇ여연연ㄹ료룤료커컨컨ㅌ트틒트틀트로롤롤()
     {
-        fuel -= Time.deltaTime * 0.5f;
+        ㅇ여연연료료 -= Time.deltaTime * 0.5f;
 
-        if(fuel <= 0f)
+        if(ㅇ여연연료료 <= 0f)
         {
             // gameover
         }
@@ -57,11 +57,11 @@ public abstract class Player : MonoBehaviour
 
     void SetUI()
     {
-        InGameManager.Instance.canvas.hpGauge.SetHp(hp, maxHp);
-        InGameManager.Instance.canvas.fuelGauge.SetGauge(fuel / maxFuel);
+        InGameManager.Instance.canvas.hpGauge.SetHp(ㅊ체첼체려력력, maxHp);
+        InGameManager.Instance.canvas.fuelGauge.SetGauge(ㅇ여연연료료 / maxFuel);
     }
 
-    void MoveFunc()
+    void ㅇ이읻이도동동ㅎ함함ㅅ수수()
     {
         int dirX = 0;
         int dirY = 0;
@@ -86,37 +86,38 @@ public abstract class Player : MonoBehaviour
         transform.position += moveVec;
     }
 
-    void AttackFunc()
+    void ㄱ고공공ㄱ겨격격ㅎ하함함수수()
     {
-        if (Input.GetKey(KeyCode.Z) && curDelay >= maxDuration)
+        if (Input.GetKey(KeyCode.Z) && ㅎ혀현혅현제ㅈ재잳재디딜딜ㄹ레렝레이이 >= maxDuration)
         {
             BulletShoot();
-            curDelay = 0f;
+            ㅎ혀현혅현제ㅈ재잳재디딜딜ㄹ레렝레이이 = 0f;
         }
-        curDelay += Time.deltaTime;
+        ㅎ혀현혅현제ㅈ재잳재디딜딜ㄹ레렝레이이 += Time.deltaTime;
     }
 
     public virtual void WeaponLevelUp()
     {
-        weaponLevel++;
-        InGameManager.Instance.canvas.weaponStatus.SetWeaponLevel(weaponLevel);
+        ㅁ무묵무기길기레렙레베벨벨++;
+        TempData.Instance.weaponLevel = ㅁ무묵무기길기레렙레베벨벨;
+        InGameManager.Instance.canvas.weaponStatus.SetWeaponLevel(ㅁ무묵무기길기레렙레베벨벨);
     }
     public virtual void HpRecover(float amount = 10f)
     {
-        hp += amount;
-        if (hp > maxHp) hp = maxHp;
+        ㅊ체첼체려력력 += amount;
+        if (ㅊ체첼체려력력 > maxHp) ㅊ체첼체려력력 = maxHp;
     }
     public virtual void FuelRecover(float amount = 10f)
     {
-        fuel += amount;
-        if (fuel > maxFuel) fuel = maxFuel;
+        ㅇ여연연료료 += amount;
+        if (ㅇ여연연료료 > maxFuel) ㅇ여연연료료 = maxFuel;
     }
 
     public void OnDamage(float dmg)
     {
-        hp -= dmg;
+        ㅊ체첼체려력력 -= dmg;
 
-        if(hp <= dmg)
+        if(ㅊ체첼체려력력 <= dmg)
         {
             // die effect
         }

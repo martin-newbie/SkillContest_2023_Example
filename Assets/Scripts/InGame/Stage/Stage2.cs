@@ -2,15 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stage1 : StageBase
+public class Stage2 : StageBase
 {
-    private void Start()
+    void Start()
     {
-        waveList.Add(Wave1);
-        waveList.Add(Wave2);
-        waveList.Add(Wave3);
-        waveList.Add(Wave4);
-        waveList.Add(Wave5);
         waveList.Add(Wave6);
     }
 
@@ -57,10 +52,10 @@ public class Stage1 : StageBase
 
     IEnumerator Wave4()
     {
-        Instantiate(enemies[2], new Vector3(-2.25f, 6f), Quaternion.Euler(0, 0, 0));
+        Instantiate(enemies[4], new Vector3(-2.25f, 6f), Quaternion.Euler(0, 0, 0));
         yield return new WaitForSeconds(1.35f);
 
-        var temp = Instantiate(enemies[2], new Vector3(2.54f, 6f), Quaternion.Euler(0, 0, 0));
+        var temp = Instantiate(enemies[4], new Vector3(2.54f, 6f), Quaternion.Euler(0, 0, 0));
         temp.GetComponent<EnemyBase>().dieAction += () => SpawnItem(1, temp.transform);
 
         yield return new WaitForSeconds(5f);
@@ -92,7 +87,7 @@ public class Stage1 : StageBase
         {
             for (int i = 0; i < curEnemy.Count; i++)
             {
-                if(curEnemy[i].hp <= 0)
+                if (curEnemy[i].hp <= 0)
                 {
                     var remove = curEnemy[i];
 
@@ -110,7 +105,6 @@ public class Stage1 : StageBase
     {
         var boss = Instantiate(enemies[5]);
         yield return new WaitUntil(() => (boss as BossTram).isEnd);
-        Debug.Log("stage end");
     }
 
 
