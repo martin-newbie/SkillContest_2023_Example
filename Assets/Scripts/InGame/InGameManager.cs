@@ -89,6 +89,9 @@ public class InGameManager : MonoBehaviour
 
         TempData.Instance.stageScore[stageIndex] = score;
 
+        SceneManager.LoadScene("Ranking");
+        yield break;
+
         if (stageIndex < 2)
         {
             TempData.Instance.stageIndex++;
@@ -99,7 +102,6 @@ public class InGameManager : MonoBehaviour
         {
             SceneManager.LoadScene("Ranking");
         }
-        yield break;
     }
 
 
